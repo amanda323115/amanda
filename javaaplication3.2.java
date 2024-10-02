@@ -1,3 +1,36 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package src/iti32;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Aluno
+ */
+public class aplicaçãojava3.2.java {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Posto posto = new Posto(3);
+        Caminhao caminhao = new Caminhao("Mercedes", "1318", 16);
+
+        try {
+            Bomba bombaDisponivel = posto.bombaDisponivel();
+            bombaDisponivel.abastecer(caminhao);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
+    }
+    
+}
 class Bomba {
     private String combustivel;
     private Carro carroAbastecendo;
@@ -12,16 +45,6 @@ class Bomba {
         return this.carroAbastecendo == null;
     }
 }
-public class App {
-    public static void main(String[] args) {
-        Bomba bomba = new Bomba("Gasolina");
-        bomba.abastecer(new Carro("Fiat", "Gol")); // O Carro Fiat Gol está sendo abastecido com Gasolina
-    }
-}
-
-
-import java.util.ArrayList;
-import java.util.List;
 class Posto {
     private List<Bomba> bombas;
     public Posto(int numBombas) {
@@ -37,21 +60,5 @@ class Posto {
             }
         }
         throw new Exception("Nenhuma bomba disponível");
-    }
-}
-
-
-public class App {
-    public static void main(String[] args) {
-        Posto posto = new Posto(3);
-        Caminhao caminhao = new Caminhao("Mercedes", "1318", 16);
-
-        try {
-            Bomba bombaDisponivel = posto.bombaDisponivel();
-            bombaDisponivel.abastecer(caminhao);
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-
     }
 }
